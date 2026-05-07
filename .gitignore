@@ -29,3 +29,20 @@ out/
 /themes/
 
 /go.sum/themes/
+
+# ───── 書籍來源檔案 (避免 push 原始素材) ─────
+*.pdf
+*.txt
+*.epub
+*.mobi
+*.azw
+*.azw3
+*.djvu
+*.doc
+*.docx
+*.odt
+*.rtf
+*.pages
+*.fb2
+*.lit
+*.chm
