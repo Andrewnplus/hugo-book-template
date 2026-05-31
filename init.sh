@@ -52,6 +52,10 @@ echo "  ✅ 已更新 site/go.mod Module 名稱"
 
 replace_text "settings.gradle.kts" "$OLD_SLUG" "$NEW_SLUG"
 
+# 啟用 Spotless pre-commit hook (commit 時自動格式化 Markdown)
+git config core.hooksPath .githooks
+echo "  ✅ 已啟用 .githooks/pre-commit (commit 前自動跑 spotlessApply)"
+
 echo "------------------------------------------"
 echo "🎉 初始化完成！"
 echo "新專案: $NEW_ZH_TITLE ($NEW_EN_TITLE)"

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# hugo-book-manager:spotless-pre-commit
+# Auto-format staged Markdown with Spotless before commit, then re-stage.
+# No-op when no Markdown is staged. Safe to delete to disable.
+set -uo pipefail
+
+staged_md=$(git diff --cached --name-only --diff-filter=ACM -- '*.md' '*.markdown')
+[ -z "$staged_md" ] && exit 0
+
+root=$(git rev-parse --show-toplevel)
+[ -x "$root/gradlew" ] || exit 0
+
+echo "[pre-commit] Spotless: formatting staged Markdown..."
+if ! (cd "$root" && ./gradlew spotlessApply -q --console=plain); then
+  echo "[pre-commit] spotlessApply failed - resolve the error, then commit again." >&2
+  exit 1
+fi
+
+# Re-stage only the Markdown files that were already staged.
+printf '%s\n' "$staged_md" | while IFS= read -r f; do
+  [ -n "$f" ] && [ -f "$root/$f" ] && git add -- "$f"
+done
+exit 0
