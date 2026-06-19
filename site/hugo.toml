@@ -1,5 +1,5 @@
 baseURL = "https://nplus.wiki/hugo-book-template/"
-languageCode = 'zh'
+locale = 'zh'
 title = "讀書筆記模版"
 enableGitInfo = true
 
