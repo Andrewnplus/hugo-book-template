@@ -20,6 +20,6 @@ jobs:
       id-token: write
     secrets: inherit
     # with:
-    #   hugo-version: '0.163.3'
+    #   hugo-version: '0.164.0'
     #   deploy-mode: 'gh-pages-branch'
     #   run-spotless: false
