@@ -9,6 +9,9 @@ pluginManagement {
         }
         gradlePluginPortal()
     }
+    plugins {
+        id("com.andrewnplus.book") version "0.2.+"
+    }
 }
 
 rootProject.name = "hugo-book-template"
