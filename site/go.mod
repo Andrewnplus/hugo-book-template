@@ -1,3 +1,3 @@
-module github.com/andrewnplus/hugo-book-template
+module github.com/nplus-father/hugo-book-template
 
 go 1.25.3
