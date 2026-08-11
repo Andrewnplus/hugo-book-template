@@ -19,7 +19,7 @@ jobs:
       pages: write
       id-token: write
     secrets: inherit
-    # with:
-    #   hugo-version: '0.164.0'
-    #   deploy-mode: 'gh-pages-branch'
-    #   run-spotless: false
+    # Optional overrides — defaults live in nplus-father/workflows.
+    # Deliberately no version numbers here: a copy Renovate keeps
+    # rewriting across the fleet is a comment that cannot stay true.
+    #   hugo-version, deploy-mode, run-spotless
