@@ -20,3 +20,6 @@ unsafe = true
 
 [markup.goldmark.parser]
 attribute = true
+
+[outputs]
+home = ["HTML", "JSON"]
