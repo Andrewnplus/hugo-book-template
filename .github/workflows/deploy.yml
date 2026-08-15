@@ -9,6 +9,15 @@ on:
 
 jobs:
   deploy:
+    # 範本 repo 本身不建置；由它建立的新書 repo 名不同 → 照常建置部署。
+    #
+    # 為什麼需要這條：範本的 site/content 只有 _index.md，沒有 hugo.toml 裡
+    # BookSection 指定的 docs/ —— Hugo 會直接 build 失敗。2026-07-06 曾用
+    # 一個 placeholder docs/_index.md 換 CI 綠燈（9b70b16），但那個佔位章節
+    # 會被每一個新建的書 repo 繼承，所以 2026-08-09 又拿掉了（7c874fb），
+    # 於是 8/12 起這裡就一直是紅的。兩個目標其實不衝突：範本不需要自己會 build。
+    # 這正是 astro 那條管線對 note-template 的做法（見 note-template 的 deploy.yml）。
+    if: github.repository != 'nplus-father/hugo-book-template'
     uses: nplus-father/workflows/.github/workflows/hugobook-build-deploy.yml@v1
     permissions:
       # Default set covers deploy-mode=pages-artifact (the default).
