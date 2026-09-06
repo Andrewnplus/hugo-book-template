@@ -23,3 +23,9 @@ attribute = true
 
 [outputs]
 home = ["HTML", "JSON"]
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['$$', '$$']]
+inline = [['$', '$']]
